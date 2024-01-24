@@ -1,0 +1,23 @@
+object Solution {
+    def maxArea(height: Array[Int]): Int = {
+        var maxWater = 0
+    var left = 0
+    var right = height.length - 1
+
+    while (left < right) {
+      val currHeight = Math.min(height(left), height(right))
+      val currWidth = right - left
+      val currWater = currHeight * currWidth
+
+      maxWater = Math.max(maxWater, currWater)
+
+      if (height(left) < height(right)) {
+        left += 1
+      } else {
+        right -= 1
+      }
+    }
+
+    maxWater
+  }
+}

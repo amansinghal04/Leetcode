@@ -1,0 +1,20 @@
+class Solution {
+    public int[] twoSum(int[] n, int t) {
+         int start = 0;
+        int end = n.length - 1;
+        int[] result = new int[2];
+        while (end > start) {
+            int sum = n[start] + n[end];
+            if (t == sum) {
+                result[0] = start + 1;
+                result[1] = end + 1;
+                break;
+            } else if (sum > t) {
+                end--;
+            } else {
+                start++;
+            }
+        }
+        return result;
+    }
+}
